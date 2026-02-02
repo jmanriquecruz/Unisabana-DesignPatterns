@@ -15,7 +15,7 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Presentation
 
             while (continueDemo)
             {
-                Console.WriteLine("\n=== CONSTRUIR VEHICULO MENU ===");
+                Console.WriteLine("\n=== MENU CONSTRUIR VEHICULO  ===");
                 Console.WriteLine("1. Crear vehículo personalizado");
                 Console.WriteLine("2. Crear vehículo deportivo(pre-configurado)");
                 Console.WriteLine("3. Create vehículo familiar (pre-configurado)");
@@ -23,9 +23,9 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Presentation
                 Console.WriteLine("5. Mostrar todos los vehículos");
                 Console.WriteLine("6. Consolidado inventario");
                 Console.WriteLine("7. Limpiar Inventario");
-                Console.WriteLine("8. Retornar a menu principal");
+                Console.WriteLine("8. Volver");
 
-                Console.Write("\nSeleccione opcion: ");
+                Console.Write("\nSeleccione opción: ");
                 var choice = Console.ReadLine();
 
                 switch (choice)

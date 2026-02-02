@@ -18,7 +18,7 @@ namespace DesignPatternsDemo
                 () => BuilderDemo.Run());
 
             menu.AddMenuItem("2", "Multiplatforma Notificationes - Patron Bridge",
-                () => Console.WriteLine("Patron Bridge - pronto!"));
+                () => BridgeDemo.Run());
 
             menu.AddMenuItem("3", "Sistema de Chat - Patron Mediator",
                 () => Console.WriteLine("Patron Mediator -pronto!"));
