@@ -9,7 +9,7 @@ namespace DesignPatternsDemo.Shared
         private readonly Dictionary<string, MenuItem> menuItems = new();
         private readonly string title;
 
-        public MenuSystem(string title = "MAIN MENU")
+        public MenuSystem(string title = "MENU")
         {
             this.title = title;
         }
@@ -45,7 +45,7 @@ namespace DesignPatternsDemo.Shared
                     continue;
                 }
 
-                if (menuItems.TryGetValue(choice, out var menuItem))
+                if (choice != null && menuItems.TryGetValue(choice, out var menuItem))
                 {
                     Console.Clear();
                     ConsoleUtils.PrintHeader(menuItem.Description);

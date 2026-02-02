@@ -7,7 +7,7 @@ namespace DesignPatternsDemo
     {
         static void Main(string[] args)
         {
-            Console.Title = "Design Patterns Demo";
+            Console.Title = "Demo Patrones de diseño";
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();

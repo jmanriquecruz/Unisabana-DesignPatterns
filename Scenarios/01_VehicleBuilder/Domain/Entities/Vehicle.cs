@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Exceptions;
+using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,95 +8,60 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Entities
 {
     public class Vehicle
     {
-        /// <summary>
-        /// Tipo de motor del vehículo  "V6 2.5L", "V8 4.0L Turbo", "Hybrid 2.0L")
-        /// </summary>
-        public string EngineType { get; }
-
-        /// <summary>
-        /// Color exterior del vehículo
-        /// </summary>
-        public string Color { get; }
-
-        /// <summary>
-        /// Tipo de llantas/ruedas ("Standard 16\"", "Sport 20\"", "Comfort 18\"")
-        /// </summary>
-        public string WheelType { get; }
-
-        /// <summary>
-        /// Indica si el vehículo tiene techo solar
-        /// </summary>
+        public EngineType Engine { get; }
+        public VehicleColor Color { get; }
+        public WheelType Wheels { get; }
+        public InteriorType Interior { get; }
+        public SoundSystem SoundSystem { get; }
         public bool HasSunroof { get; }
-
-        /// <summary>
-        /// Sistema de sonido instalado ("Básico", "Premium", "Premium Plus")
-        /// </summary>
-        public string SoundSystem { get; }
-
-        /// <summary>
-        /// Tipo de interior ("Fabric", "Leather", "Synthetic Leather")
-        /// </summary>
-        public string InteriorType { get; }
-
-        /// <summary>
-        /// Indica si el vehículo tiene sistema de navegación GPS
-        /// </summary>
         public bool HasGPS { get; }
-
-        /// <summary>
-        /// Indica si el vehículo tiene cámara de retroceso
-        /// </summary>
         public bool HasCamera { get; }
-
-        /// <summary>
-        /// Tipo de transmisión ("Automático", "Manual", "Semi-automático")
-        /// </summary>
+        public bool HasHeatedSeats { get; }
         public string Transmission { get; }
 
-        /// <summary>
-        /// Indica si los asientos tienen calefacción
-        /// </summary>
-        public bool HasHeatedSeats { get; }
-
-        // Constructor interno (solo Builder puede crear)
         internal Vehicle(
-            string engineType,
-            string color,
-            string wheelType,
+            EngineType engine,
+            VehicleColor color,
+            WheelType wheels,
+            InteriorType interior,
+            SoundSystem soundSystem,
+            string transmission,
             bool hasSunroof,
-            string soundSystem,
-            string interiorType,
             bool hasGps,
             bool hasCamera,
-            string transmission,
             bool hasHeatedSeats)
         {
-            EngineType = engineType;
-            Color = color;
-            WheelType = wheelType;
+            Engine = engine ?? throw new DomainException("Engine requerido");
+            Color = color ?? throw new DomainException("Color requerido");
+            Wheels = wheels ?? throw new DomainException("Wheels requeridas");
+            Interior = interior ?? throw new DomainException("Interior requerido");
+            SoundSystem = soundSystem ?? SoundSystem.Basic;
+            Transmission = transmission ?? throw new DomainException("Transmission requerida");
+
             HasSunroof = hasSunroof;
-            SoundSystem = soundSystem;
-            InteriorType = interiorType;
             HasGPS = hasGps;
             HasCamera = hasCamera;
-            Transmission = transmission;
             HasHeatedSeats = hasHeatedSeats;
+
+            ValidateRules();
         }
 
-        // Métodos de dominio
-        public decimal CalculatePrice()
+        private void ValidateRules()
         {
-            decimal price = 25000; // Precio base
+            if (HasSunroof && !Interior.IsLeather)
+                throw new DomainException("Techo solar requiere interior de cuero");
+        }
 
-            // Motor
-            if (EngineType.Contains("V8")) price += 8000;
-            else if (EngineType.Contains("V6")) price += 4000;
-            else if (EngineType.Contains("Hybrid")) price += 3000;
+        public decimal CalculateBasePrice()
+        {
+            decimal price = 25000;
 
-            // Características
+            if (Engine.IsV8) price += 8000;
+            else if (Engine.IsHybrid) price += 3000;
+
             if (HasSunroof) price += 2000;
-            if (SoundSystem == "Premium") price += 1500;
-            if (InteriorType == "Leather") price += 3000;
+            if (SoundSystem == SoundSystem.Premium) price += 1500;
+            if (Interior.IsLeather) price += 3000;
             if (HasGPS) price += 800;
             if (HasCamera) price += 500;
             if (HasHeatedSeats) price += 1200;
@@ -104,16 +71,7 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Entities
 
         public string GetDescription()
         {
-            var features = new List<string>();
-            if (HasSunroof) features.Add("Techo solar");
-            if (SoundSystem == "Premium") features.Add("Sonido premium");
-            if (HasGPS) features.Add("GPS");
-            if (HasCamera) features.Add("Cámara de retroceso");
-            if (HasHeatedSeats) features.Add("Asientos calefaccionados");
-
-            return $"{Color} {EngineType} con llantas {WheelType}" +
-                   $" e interior de {InteriorType}. " +
-                   $"Características: {string.Join(", ", features)}";
+            return $"{Color} {Engine} con llantas {Wheels} e interior {Interior}";
         }
     }
 }

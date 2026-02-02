@@ -1,118 +1,88 @@
-﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders;
+﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Application.Directors;
+using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders;
 using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects;
+
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Application.Services
 {
     public class VehicleService
     {
-        private readonly List<Vehicle> vehicles = new();
+        private readonly IVehicleBuilder _builder;
+        private readonly VehicleDirector _director;
+        private readonly List<Vehicle> _inventory = new();
+
+        public VehicleService(IVehicleBuilder builder)
+        {
+            _builder = builder;
+            _director = new VehicleDirector(builder);
+        }
+
 
         public Vehicle CreateCustomVehicle(
-            string engineType,
-            string color,
-            bool includeSunroof = false,
-            bool includeGPS = false,
-            bool includeCamera = false)
+            string engineInput,
+            string colorInput,
+            bool sunroof,
+            bool gps,
+            bool camera)
         {
-            var builder = new VehicleBuilder()
-                .WithEngine(engineType)
-                .WithColor(color);
 
-            if (includeSunroof) builder.WithSunroof();
-            if (includeGPS) builder.WithGPS();
-            if (includeCamera) builder.WithCamera();
+            var engine = EngineType.FromString(engineInput);
+            var color = VehicleColor.FromString(colorInput);
 
-            var vehicle = builder.Build();
-            this.vehicles.Add(vehicle);
+            var vehicle = _builder
+                .WithEngine(engine)
+                .WithColor(color)
+                .WithWheelType(WheelType.Standard16)
+                .WithInterior(InteriorType.Leather)
+                .WithSoundSystem(SoundSystem.Basic)
+                .WithTransmission("Automático")
+                .WithSunroof(sunroof)
+                .WithGPS(gps)
+                .WithCamera(camera)
+                .WithHeatedSeats(false)
+                .Build();
+
+            _inventory.Add(vehicle);
             return vehicle;
         }
 
-        /// <summary>
-        /// Crea un auto deportivo pre-configurado
-        /// </summary>
-        /// <param name="color">Color personalizado (opcional)</param>
-        /// <returns>Auto deportivo creado</returns>
-        public Vehicle CreateSportsCar(string color = "Rojo")
+        public Vehicle CreateSportsCar(string colorInput)
         {
-            var builder = new VehicleBuilder()
-                .ConfigureAsSportsCar()
-                .WithColor(color);
-
-            var vehicle = builder.Build();
-            this.vehicles.Add(vehicle);
+            var color = VehicleColor.FromString(colorInput);
+            var vehicle = _director.BuildSportsCar(color);
+            _inventory.Add(vehicle);
             return vehicle;
         }
 
-        /// <summary>
-        /// Crea un auto familiar pre-configurado
-        /// </summary>
-        /// <param name="color">Color personalizado (opcional)</param>
-        /// <returns>Auto familiar creado</returns>
-        public Vehicle CreateFamilyCar(string color = "Azul")
+        public Vehicle CreateFamilyCar(string colorInput)
         {
-            var builder = new VehicleBuilder()
-                .ConfigureAsFamilyCar()
-                .WithColor(color);
-
-            var vehicle = builder.Build();
-            this.vehicles.Add(vehicle);
+            var color = VehicleColor.FromString(colorInput);
+            var vehicle = _director.BuildFamilyCar(color);
+            _inventory.Add(vehicle);
             return vehicle;
         }
 
-        /// <summary>
-        /// Crea un auto ecológico pre-configurado
-        /// </summary>
-        /// <param name="color">Color personalizado (opcional)</param>
-        /// <returns>Auto ecológico creado</returns>
-        public Vehicle CreateEcoCar(string color = "Verde")
+        public Vehicle CreateEcoCar(string colorInput)
         {
-            var builder = new VehicleBuilder()
-                .ConfigureAsEcoCar()
-                .WithColor(color);
-
-            var vehicle = builder.Build();
-            this.vehicles.Add(vehicle);
+            var color = VehicleColor.FromString(colorInput);
+            var vehicle = _director.BuildEcoCar(color);
+            _inventory.Add(vehicle);
             return vehicle;
         }
 
-        /// <summary>
-        /// Obtiene todos los vehículos creados
-        /// </summary>
-        /// <returns>Lista de vehículos</returns>
-        public List<Vehicle> GetAllVehicles()
-        {
-            return new List<Vehicle>(this.vehicles);
-        }
+        public IReadOnlyList<Vehicle> GetAllVehicles() => _inventory;
 
-        /// <summary>
-        /// Calcula el valor total del inventario de vehículos
-        /// </summary>
-        /// <returns>Valor total en dinero</returns>
-        public decimal CalculateTotalInventoryValue()
+        public Dictionary<VehicleColor, int> GetVehiclesByColor()
         {
-            return this.vehicles.Sum(v => v.CalculatePrice());
-        }
-
-        /// <summary>
-        /// Obtiene la cantidad de vehículos agrupados por color
-        /// </summary>
-        /// <returns>Diccionario color → cantidad</returns>
-        public Dictionary<string, int> GetVehiclesByColor()
-        {
-            return this.vehicles
+            return _inventory
                 .GroupBy(v => v.Color)
                 .ToDictionary(g => g.Key, g => g.Count());
         }
 
-        /// <summary>
-        /// Limpia el inventario de vehículos
-        /// </summary>
-        public void ClearInventory()
-        {
-            this.vehicles.Clear();
-        }
+        public decimal CalculateTotalInventoryValue() =>
+            _inventory.Sum(v => v.CalculateBasePrice());
+
+        public void ClearInventory() => _inventory.Clear();
     }
 }
