@@ -1,5 +1,6 @@
 ﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Presentation;
 using DesignPatternsDemo.Shared;
+using DesignPatternsDemo.Team;
 
 namespace DesignPatternsDemo
 {
@@ -25,6 +26,8 @@ namespace DesignPatternsDemo
 
             menu.AddMenuItem("4", "Acerca de esta aplicación",
                 () => ShowAboutInfo());
+            menu.AddMenuItem("5", "Integrantes del equipo",
+                () => TeamDemo.Run());
 
             menu.Show();
         }

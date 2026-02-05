@@ -24,7 +24,7 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Presentation
                 Console.WriteLine("1. Web");
                 Console.WriteLine("2. Móvil");
                 Console.WriteLine("3. Escritorio");
-                Console.WriteLine("4. Salir");
+                Console.WriteLine("4. Volver");
 
                 Console.Write("\nSeleccione una opción: ");
                 var platformOption = Console.ReadLine();
