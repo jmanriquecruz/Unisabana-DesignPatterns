@@ -28,7 +28,6 @@ namespace DesignPatternsDemo.Shared
                 Console.Clear();
                 ConsoleUtils.PrintHeader(title);
 
-                // Display menu items
                 foreach (var item in menuItems.Values.OrderBy(m => m.Key))
                 {
                     Console.WriteLine($"{item.Key}. {item.Description}");

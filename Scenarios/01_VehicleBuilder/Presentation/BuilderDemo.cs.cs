@@ -92,7 +92,7 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Presentation
                 var vehicle = service.CreateCustomVehicle(engine.Trim(), color.Trim(), sunroof, gps, camera);
                 Console.WriteLine($"\nVehiculo creado exitosamente!");
                 Console.WriteLine($"   Descripción: {vehicle.GetDescription()}");
-                Console.WriteLine($"   Precio: {vehicle.CalculateBasePrice():C}");
+                Console.WriteLine($"   Precio: {vehicle.CalculateBasePrice()}");
             }
             catch (InvalidOperationException ex)
             {
@@ -170,7 +170,7 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Presentation
 
             Console.WriteLine("\n=== RESUMEN INVENTARIO ===");
             Console.WriteLine($"Total VehículoS: {vehicles.Count}");
-            Console.WriteLine($"Total general: {totalValue:C}");
+            Console.WriteLine($"Total general: {totalValue}");
 
             if (byColor.Any())
             {
