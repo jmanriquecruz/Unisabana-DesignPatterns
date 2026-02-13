@@ -11,7 +11,11 @@ namespace DesignPatternsDemo.Team
     {
         private static readonly IReadOnlyList<TeamMember> Team = new List<TeamMember>
         {
-            new("Jose Manrique", "CC - 1127597008"),
+            new("Jose del carmen Manrique Cruz", "CC - 1127597008"),
+            new("José Antonio Leao Ferrer", "CE - 468562"),
+            new("Samuel Giovanni Colmenares Patino", "CC - 80768080"),
+            new("Diego Fernando Ramirez Tenjo", "CC - 1025460988")
+            
         };
 
         public static void Run()

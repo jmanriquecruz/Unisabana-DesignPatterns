@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Scenarios\03_ChatMediator\Documentation\" />
+    <Folder Include="Scenarios\03_ChatMediator\ClassDiagram\" />
   </ItemGroup>
 
 </Project>

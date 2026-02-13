@@ -5,6 +5,12 @@ Este proyecto es una **aplicación de consola desarrollada en C#** cuyo objetivo
 
 La solución está organizada por **escenarios**, donde cada uno aborda un problema común de diseño de software y muestra cómo un patrón específico permite resolverlo de manera clara, escalable y mantenible.
 
+**Integrantes**
+José del Carmen Manrique Cruz
+José Antonio Leao Ferrer
+Samuel Giovanni Colmenares Patino
+Diego Fernando Ramirez Tenjo
+
 ---
 
 ## Patrones implementados
@@ -14,6 +20,8 @@ La solución está organizada por **escenarios**, donde cada uno aborda un probl
 3. **Mediator** – Comunicación desacoplada entre objetos  
 
 Cada patrón se implementa respetando la separación de responsabilidades y buenas prácticas de diseño orientado a objetos.
+
+#
 
 ---
 
@@ -39,6 +47,10 @@ Se implementa el **patrón Builder**, separando:
 - Construcción paso a paso
 - Código más claro y mantenible
 - Fácil extensión de configuraciones de vehículos
+
+### Diagrama de clases
+![Diagrama de Arquitectura](Scenarios/01_VehicleBuilder/ClassDiagram/01_VehicleBuilder.png)
+
 
 ---
 
@@ -73,6 +85,10 @@ Se complementa con **Factory Method** para desacoplar la creación de plataforma
 - Cumplimiento de OCP y DIP
 - Mayor flexibilidad y mantenibilidad
 
+
+### Diagrama de clases
+![Diagrama de Arquitectura](Scenarios/02_NotificationBridge/ClassDiagram/02_NotificationBridge.png)
+
 ---
 
 ## Escenario 3 – Sistema de Chat (Mediator)
@@ -99,13 +115,8 @@ Se implementa el **patrón Mediator**, centralizando la comunicación en un obje
 
 ---
 
-## Diagramas de clases
-
-El proyecto incluye **diagramas de clases** , donde se representan:
-- Clases principales
-- Relaciones
-
-Los diagramas se encuentran en la carpeta de documentación de cada escenario.
+### Diagrama de clases
+![Diagrama de Arquitectura](Scenarios/03_ChatMediator/ClassDiagram/03_ChatMediator.png)
 
 ---
 
