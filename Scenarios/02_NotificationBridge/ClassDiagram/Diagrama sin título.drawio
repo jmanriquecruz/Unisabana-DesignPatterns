@@ -1,0 +1,139 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Notification Bridge UML">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Abstraction -->
+        <mxCell id="2"
+          value="Notification (abstract)&#10;----------------&#10;- platform: INotificationPlatform&#10;- message: string&#10;----------------&#10;+ Send(): void"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="320" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Refined Abstractions -->
+        <mxCell id="3"
+          value="MessageNotification&#10;----------------&#10;+ Send(): void"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="4"
+          value="AlertNotification&#10;----------------&#10;+ Send(): void"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="330" y="420" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="5"
+          value="WarningNotification&#10;----------------&#10;+ Send(): void"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="600" y="420" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Implementation Interface -->
+        <mxCell id="6"
+          value="&lt;&lt;interface&gt;&gt;&#10;INotificationPlatform&#10;----------------&#10;+ Show(title, message): void"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="320" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Concrete Implementations -->
+        <mxCell id="7"
+          value="WebPlatform&#10;----------------&#10;+ Show(title, message)"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="520" y="260" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="8"
+          value="MobilePlatform&#10;----------------&#10;+ Show(title, message)"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="790" y="260" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="9"
+          value="DesktopPlatform&#10;----------------&#10;+ Show(title, message)"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="1060" y="260" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Factory -->
+        <mxCell id="10"
+          value="NotificationPlatformFactory&#10;----------------&#10;+ Create(type): INotificationPlatform"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="1060" y="80" width="300" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Service -->
+        <mxCell id="11"
+          value="NotificationService&#10;----------------&#10;+ SendNotification(type, platform, message)"
+          style="rounded=1;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="900" y="500" width="340" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Relations -->
+
+        <!-- Inheritance -->
+        <mxCell id="12" style="endArrow=block;endFill=0;" edge="1" parent="1"
+          source="3" target="2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="13" style="endArrow=block;endFill=0;" edge="1" parent="1"
+          source="4" target="2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="14" style="endArrow=block;endFill=0;" edge="1" parent="1"
+          source="5" target="2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Implementation realization -->
+        <mxCell id="15" style="endArrow=block;dashed=1;endFill=0;" edge="1" parent="1"
+          source="7" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="16" style="endArrow=block;dashed=1;endFill=0;" edge="1" parent="1"
+          source="8" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="17" style="endArrow=block;dashed=1;endFill=0;" edge="1" parent="1"
+          source="9" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Bridge association -->
+        <mxCell id="18" style="endArrow=open;" edge="1" parent="1"
+          source="2" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Factory dependency -->
+        <mxCell id="19" style="endArrow=open;dashed=1;" edge="1" parent="1"
+          source="10" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Service dependencies -->
+        <mxCell id="20" style="endArrow=open;" edge="1" parent="1"
+          source="11" target="2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

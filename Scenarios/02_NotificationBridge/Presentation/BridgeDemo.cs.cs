@@ -1,11 +1,6 @@
-﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Application.Services;
-using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders;
-using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Exceptions;
-using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects;
-using DesignPatternsDemo.Scenarios._02_NotificationBridge.Application.Factories;
+﻿using DesignPatternsDemo.Scenarios._02_NotificationBridge.Application.Factories;
 using DesignPatternsDemo.Scenarios._02_NotificationBridge.Application.Services;
 using DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Implementations;
-using DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Infrastructure.Platforms;
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Presentation
 {
