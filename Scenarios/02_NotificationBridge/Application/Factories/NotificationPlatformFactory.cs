@@ -1,5 +1,5 @@
 ﻿using DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Implementations;
-using DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Infrastructure.Platforms;
+using DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Platforms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
