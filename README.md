@@ -5,11 +5,12 @@ Este proyecto es una **aplicación de consola desarrollada en C#** cuyo objetivo
 
 La solución está organizada por **escenarios**, donde cada uno aborda un problema común de diseño de software y muestra cómo un patrón específico permite resolverlo de manera clara, escalable y mantenible.
 
-**Integrantes**
-José del Carmen Manrique Cruz
-José Antonio Leao Ferrer
-Samuel Giovanni Colmenares Patino
-Diego Fernando Ramirez Tenjo
+## 👥 Integrantes
+
+- **José del Carmen Manrique Cruz**
+- **José Antonio Leao Ferrer**
+- **Samuel Giovanni Colmenares Patiño**
+- **Diego Fernando Ramírez Tenjo**
 
 ---
 
