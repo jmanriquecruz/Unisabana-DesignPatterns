@@ -50,7 +50,7 @@ Se implementa el **patrón Builder**, separando:
 - Fácil extensión de configuraciones de vehículos
 
 ### Diagrama de clases
-![Diagrama de Arquitectura](Scenarios/01_VehicleBuilder/ClassDiagram/01_VehicleBuilder.png)
+![Diagrama de Arquitectura](Scenarios/01_VehicleBuilder/ClassDiagram/01_VehicleBuilder.svg)
 
 
 ---
@@ -88,7 +88,7 @@ Se complementa con **Factory Method** para desacoplar la creación de plataforma
 
 
 ### Diagrama de clases
-![Diagrama de Arquitectura](Scenarios/02_NotificationBridge/ClassDiagram/02_NotificationBridge.png)
+![Diagrama de Arquitectura](Scenarios/02_NotificationBridge/ClassDiagram/02_NotificationBridge.svg)
 
 ---
 
@@ -117,7 +117,7 @@ Se implementa el **patrón Mediator**, centralizando la comunicación en un obje
 ---
 
 ### Diagrama de clases
-![Diagrama de Arquitectura](Scenarios/03_ChatMediator/ClassDiagram/03_ChatMediator.png)
+![Diagrama de Arquitectura](Scenarios/03_ChatMediator/ClassDiagram/03_ChatMediator.svg)
 
 ---
 
