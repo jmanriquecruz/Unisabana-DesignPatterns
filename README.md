@@ -78,7 +78,7 @@ Se complementa con **Factory Method** para desacoplar la creación de plataforma
 - `DesktopPlatform`
 - `NotificationPlatformFactory`
 - `NotificationService`
-- `BridgeDemo`
+
 
 ### Beneficios
 - Cambio de plataforma en tiempo de ejecución
@@ -124,5 +124,6 @@ Se implementa el **patrón Mediator**, centralizando la comunicación en un obje
 ## Interfaz por consola
 
 La aplicación cuenta con un **menú principal** que permite navegar entre los diferentes escenarios:
+Las clases Demo no forman parte del diagrama ya que son de prueba para la capa de presentación.
 
 
