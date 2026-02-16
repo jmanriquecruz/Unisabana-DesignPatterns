@@ -42,7 +42,7 @@ Se implementa el **patrón Builder**, separando:
 - `VehicleBuilder`
 - `VehicleDirector`
 - `VehicleService`
-- `VehicleDemo`
+
 
 ### Beneficios
 - Construcción paso a paso
