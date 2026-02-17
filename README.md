@@ -42,6 +42,7 @@ Se implementa el **patrón Builder**, separando:
 - `VehicleBuilder`
 - `VehicleDirector`
 - `VehicleService`
+- `BuilderDemo.cs(demostración de uso de patron))`
 
 
 ### Beneficios
@@ -78,6 +79,7 @@ Se complementa con **Factory Method** para desacoplar la creación de plataforma
 - `DesktopPlatform`
 - `NotificationPlatformFactory`
 - `NotificationService`
+- `BridgeDemo.cs(demostración de uso de patron))`
 
 
 ### Beneficios
@@ -105,7 +107,7 @@ Se implementa el **patrón Mediator**, centralizando la comunicación en un obje
 - `ChatRoom` 
 - `ChatUser`
 - `ChatService`
-- `MediatorDemo`
+- `MediatorDemo(demostración de uso de patron)`
 
 ### Beneficios
 - Los usuarios no se conocen entre sí
