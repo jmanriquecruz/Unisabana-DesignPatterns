@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects
 {
-    public sealed record SoundSystem
+    public  record SoundSystem
     {
         public string Value { get; }
 

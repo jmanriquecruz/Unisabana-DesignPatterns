@@ -1,7 +1,5 @@
 ﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Entities;
-using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Exceptions;
 using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects;
-
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders
 {

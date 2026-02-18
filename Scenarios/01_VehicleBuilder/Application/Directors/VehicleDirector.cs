@@ -1,11 +1,6 @@
 ﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders;
 using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Entities;
 using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Application.Directors
 {

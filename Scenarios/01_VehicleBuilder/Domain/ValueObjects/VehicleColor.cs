@@ -1,20 +1,13 @@
 ﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects
 {
-    public sealed record VehicleColor(string Value)
+    public  record VehicleColor(string Value)
     {
         public static VehicleColor Black => new("Negro");
         public static VehicleColor White => new("Blanco");
         public static VehicleColor Red => new("Rojo");
         public static VehicleColor Blue => new("Azul");
         public static VehicleColor Green => new("Verde");
-
 
         public static VehicleColor FromString(string value)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects
 {
-    public sealed record InteriorType
+    public  record InteriorType
     {
         public string Value { get; }
 
@@ -14,7 +14,6 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects
         {
             Value = value;
         }
-
         public static InteriorType Fabric => new("Tela");
         public static InteriorType Leather => new("Cuero");
         public static InteriorType SyntheticLeather => new("Cuero Sintetico");

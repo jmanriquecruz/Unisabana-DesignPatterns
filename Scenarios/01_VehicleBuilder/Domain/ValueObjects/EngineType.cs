@@ -1,13 +1,9 @@
 ﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects
 {
-    public sealed record EngineType
+    public  record EngineType
     {
         public string Value { get; }
 
@@ -37,7 +33,7 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects
         }
 
         public bool IsV8 => Value.StartsWith("V8");
-        public bool IsHybrid => Value.StartsWith("Hybrido");
+        public bool IsHybrid => Value.StartsWith("hibrido");
 
         public override string ToString() => Value;
     }
