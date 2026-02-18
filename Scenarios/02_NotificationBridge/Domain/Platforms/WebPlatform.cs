@@ -11,7 +11,7 @@ namespace DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Platforms
     {
         public void Show(string title, string message)
         {
-            Console.WriteLine($"[WEB] {title}: {message}");
+            Console.WriteLine($"WEB {title}: {message}");
         }
     }
 }

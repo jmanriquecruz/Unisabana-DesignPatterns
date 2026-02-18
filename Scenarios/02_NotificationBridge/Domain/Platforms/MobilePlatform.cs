@@ -11,7 +11,7 @@ namespace DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Platforms
     {
         public void Show(string title, string message)
         {
-            Console.WriteLine($"[MÓVIL] {title}: {message}");
+            Console.WriteLine($"MÓVIL {title}: {message}");
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using DesignPatternsDemo.Scenarios._03_ChatMediator.Domain.Mediators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using DesignPatternsDemo.Scenarios._03_ChatMediator.Domain.Rooms;
 namespace DesignPatternsDemo.Scenarios._03_ChatMediator.Domain.Users
 {
     public class ChatUser
@@ -25,7 +19,7 @@ namespace DesignPatternsDemo.Scenarios._03_ChatMediator.Domain.Users
 
         public void Receive(string message, string from)
         {
-            Console.WriteLine($"[{Name}] mensaje de {from}: {message}");
+            Console.WriteLine($"{Name} mensaje de {from}: {message}");
         }
     }
 }

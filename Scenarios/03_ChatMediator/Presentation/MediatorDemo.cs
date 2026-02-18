@@ -1,10 +1,5 @@
 ﻿using DesignPatternsDemo.Scenarios._03_ChatMediator.Application.Services;
-using DesignPatternsDemo.Scenarios._03_ChatMediator.Domain.Mediators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DesignPatternsDemo.Scenarios._03_ChatMediator.Domain.Rooms;
 
 namespace DesignPatternsDemo.Scenarios._03_ChatMediator.Presentation
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace DesignPatternsDemo.Shared
 {
     public partial class MenuSystem

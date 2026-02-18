@@ -15,7 +15,7 @@ namespace DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Notificatio
 
         public override void Send()
         {
-            Platform.Show("Alerta", "Algo requiere tu atención inmediata");
+            Platform.Show("Alerta", "Algo requiere su atención inmediata");
         }
     }
 }

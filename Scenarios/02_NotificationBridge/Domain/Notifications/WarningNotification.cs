@@ -1,10 +1,5 @@
 ﻿using DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Abstractions;
 using DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Implementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Notifications
 {
@@ -16,7 +11,7 @@ namespace DesignPatternsDemo.Scenarios._02_NotificationBridge.Domain.Notificatio
 
         public override void Send()
         {
-            Platform.Show("Warning", "Existe una condición que requiere atención, pero no es crítica.");
+            Platform.Show("Warning", "Existe una condición que requiere atención.");
         }
     }
 

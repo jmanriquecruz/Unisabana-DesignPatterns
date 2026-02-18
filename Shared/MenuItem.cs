@@ -1,6 +1,5 @@
-﻿namespace DesignPatternsDemo.Shared;
-
-
+﻿namespace DesignPatternsDemo.Shared
+{
     public class MenuItem
     {
         public string Key { get; }
@@ -13,5 +12,6 @@
             Description = description;
             Action = action;
         }
-    
+
+    }
 }

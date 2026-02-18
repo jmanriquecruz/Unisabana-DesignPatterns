@@ -1,9 +1,7 @@
 ﻿using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Entities;
 using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Exceptions;
 using DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders
 {
@@ -19,7 +17,6 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders
         private bool _hasGps;
         private bool _hasCamera;
         private bool _hasHeatedSeats;
-
 
         public IVehicleBuilder WithEngine(EngineType engine)
         {
@@ -57,7 +54,6 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders
             return this;
         }
 
-
         public IVehicleBuilder WithGPS(bool hasGps)
         {
             _hasGps = hasGps;
@@ -84,8 +80,6 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders
 
         public Vehicle Build()
         {
-            Validate();
-
             return new Vehicle(
                 _engine,
                 _color,
@@ -98,27 +92,6 @@ namespace DesignPatternsDemo.Scenarios._01_VehicleBuilder.Domain.Builders
                 _hasCamera,
                 _hasHeatedSeats
             );
-        }
-
-        private void Validate()
-        {
-            if (_engine is null)
-                throw new DomainException("Motor es requerido");
-
-            if (_color is null)
-                throw new DomainException("Color es requerido");
-
-            if (_wheels is null)
-                throw new DomainException("Tipo de llanta es requerido");
-
-            if (_interior is null)
-                throw new DomainException("Interior es requerido");
-
-            if (_soundSystem is null)
-                throw new DomainException("Sitema de Sonido es requerido");
-
-            if (string.IsNullOrWhiteSpace(_transmission))
-                throw new DomainException("Transmision es requerida");
         }
 
         public void Reset()
